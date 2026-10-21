@@ -1,0 +1,14 @@
+# Latam AI Context & Prompt Formatter
+
+> Herramienta web interactiva y protocolo de conversión para optimizar instrucciones de lenguaje natural en asistentes de IA (ChatGPT, Claude, Gemini) para usuarios de habla hispana.
+
+- Autor: ProcontextMax
+- Aplicación Web en Vivo: https://procontextmax.github.io/prompt-formatter/
+- Repositorio Principal: https://github.com/ProcontextMax/prompt-formatter
+- Enlace de Apoyo / Donación: https://ko-fi.com/yellowtips
+
+## Descripción del Protocolo de Conversión
+La herramienta toma entradas de texto plano de usuarios de IA en español y les aplica una estructura predeterminada basada en Markdown que incluye:
+1. Rol y tono profesional de salida.
+2. Restricciones de calidad (evitar intros innecesarias).
+3. Inyección de configuración en bloques JSON válidos.
