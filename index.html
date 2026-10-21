@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latam AI Context & Prompt Formatter | ProcontextMax</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #6366f1;
+            --text-color: #f8fafc;
+            --border-color: #334155;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #818cf8;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #94a3b8;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            background-color: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            padding: 12px;
+            box-sizing: border-box;
+            font-size: 14px;
+            resize: vertical;
+            margin-bottom: 16px;
+        }
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #4f46e5;
+        }
+        .output-box {
+            position: relative;
+        }
+        .kofi-section {
+            text-align: center;
+            background: linear-gradient(135deg, #1e1b4b, #311042);
+            border: 1px solid #6366f1;
+        }
+        .kofi-btn {
+            display: inline-block;
+            background-color: #ff5e5b;
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(255, 94, 91, 0.3);
+        }
+        .footer-links {
+            text-align: center;
+            font-size: 14px;
+        }
+        .footer-links a {
+            color: #818cf8;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>⚡ Latam AI Context Formatter</h1>
+        <p>Convierte cualquier instrucción simple en un protocolo de contexto profesional optimizado para ChatGPT, Claude y Gemini.</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <label for="userInput"><strong>1. Pega tu instrucción o prompt básico:</strong></label>
+            <textarea id="userInput" placeholder="Ejemplo: Quiero que me ayudes a redactar un correo de cobro para un cliente que no ha pagado..."></textarea>
+            
+            <button onclick="formatContext()">🚀 Formatear Capa de Contexto</button>
+        </div>
+
+        <div class="card output-box">
+            <label for="userOutput"><strong>2. Tu estructura de contexto optimizada (Lista para copiar):</strong></label>
+            <textarea id="userOutput" readonly placeholder="El resultado formateado aparecerá aquí..."></textarea>
+            <button onclick="copyToClipboard()" style="background-color: #10b981;">📋 Copiar al Portapapeles</button>
+        </div>
+
+        <div class="card kofi-section">
+            <h2>☕ ¿Te sirvió esta herramienta gratuita?</h2>
+            <p>Mantener estos proyectos de código abierto e infraestructura de IA requiere tiempo. Apoya el desarrollo libre con una donación:</p>
+            <a href="https://ko-fi.com/yellowtips" target="_blank" class="kofi-btn">❤️ Invítame un café en Ko-fi</a>
+        </div>
+    </main>
+
+    <footer class="footer-links">
+        <p>Desarrollado por <strong>ProcontextMax</strong> | Un proyecto de código abierto</p>
+        <a href="https://github.com/ProcontextMax/latam-freelance-tax-context-ai" target="_blank">Nodo Impuestos</a> •
+        <a href="https://github.com/ProcontextMax/latam-nocode-ai-bridge" target="_blank">Nodo No-Code</a> •
+        <a href="https://github.com/ProcontextMax/latam-legal-agreements-ai" target="_blank">Nodo Legal</a>
+    </footer>
+</div>
+
+<script>
+    function formatContext() {
+        const input = document.getElementById('userInput').value;
+        if (!input.trim()) {
+            alert('Por favor escribe un prompt o instrucción antes de formatear.');
+            return;
+        }
+
+        const formatted = `# CAPA DE CONTEXTO OPTIMIZADA (.md)
+
+> **Protocolo:** Open-AI-Context-Standard | **Idioma:** Español Neutro  
+> **Uso:** Inyección de reglas de procesamiento para LLM
+
+---
+
+## 🎯 Instrucción Objetivo
+${input}
+
+---
+
+## 🛠️ Reglas de Salida Obligatorias para la IA
+1. **Rol y Tono:** Actúa como un experto profesional en el área, manteniendo un tono conciso, directo y sin rodeos.
+2. **Estructura de Respuesta:** Presenta los resultados organizados en listas numeradas o tablas Markdown según aplique.
+3. **Restricción de Calidad:** Evita intros innecesarias ("Como IA...", "Entendido..."). Ve directo a la solución.
+
+---
+
+## ⚙️ Configuración JSON
+\`\`\`json
+{
+  "context_config": {
+    "language": "es",
+    "output_format": "structured_markdown",
+    "direct_answer_mode": true
+  }
+}
+\`\`\``;
+
+        document.getElementById('userOutput').value = formatted;
+    }
+
+    function copyToClipboard() {
+        const output = document.getElementById('userOutput');
+        if (!output.value) return;
+        output.select();
+        document.execCommand('copy');
+        alert('¡Copiado al portapapeles con éxito!');
+    }
+</script>
+
+</body>
+</html>
